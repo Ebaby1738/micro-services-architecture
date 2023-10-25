@@ -8,19 +8,27 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="product-service" />
-        <module name="inventory-service" />
-        <module name="micro-service-act" />
+        <module name="order-service" />
+        <module name="inventory-module" />
+        <module name="discovery-module" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="discovery-service" target="17" />
+      <module name="inventory-service" target="17" />
+      <module name="inventoryModule" target="17" />
       <module name="order-service (1)" target="17" />
       <module name="order-service (2)" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="discovery-module" options="-parameters" />
+      <module name="discovery-service" options="-parameters" />
+      <module name="inventory-module" options="-parameters" />
       <module name="inventory-service" options="-parameters" />
-      <module name="micro-service-act" options="-parameters" />
+      <module name="inventoryModule" options="-parameters" />
+      <module name="micro-service-act" options="" />
       <module name="order-service" options="-parameters" />
       <module name="order-service (1)" options="-parameters" />
       <module name="order-service (2)" options="-parameters" />
