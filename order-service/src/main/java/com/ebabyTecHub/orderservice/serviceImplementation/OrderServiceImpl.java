@@ -24,7 +24,7 @@ public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
     private final WebClient.Builder webClientBuilder;
     @Override
-    public void placeOrder(OrderRequest orderRequest) {
+    public String placeOrder(OrderRequest orderRequest) {
 
         Order order = new Order();
         order.setOrderNumber(UUID.randomUUID().toString());
@@ -48,6 +48,7 @@ public class OrderServiceImpl implements OrderService {
 
         if (allProductInStock){
             orderRepository.save(order);
+            return "order placed successfully";
         } else{
             throw new IllegalArgumentException("product is not in stock, please try again later");
         }

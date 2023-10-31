@@ -8,20 +8,32 @@
 		<version>3.1.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<packaging>pom</packaging>
-	<groupId>com.ebabyTecHub</groupId>
-	<artifactId>micro-service-act</artifactId>
+	<groupId>com.api-gateway</groupId>
+	<artifactId>api-gateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>micro-service-act</name>
-	<description>Demo project for Spring Boot</description>
+	<name>api-gateway</name>
+	<description>api-gateway</description>
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2022.0.4</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-gateway</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
 		<dependency>
@@ -30,25 +42,8 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	<modules>
-		<module>order-service</module>
-		<module>product-service</module>
-		<module>discovery-module</module>
-		<module>inventory-module</module>
-		<module>api-gateway</module>
-	</modules>
-
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
-				<groupId>org.testcontainers</groupId>
-				<artifactId>testcontainers-bom</artifactId>
-				<version>1.19.1</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
@@ -64,18 +59,8 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
-
 
 </project>
